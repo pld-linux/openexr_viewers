@@ -5,24 +5,26 @@
 Summary:	Simple still OpenEXR image viewer
 Summary(pl.UTF-8):	Prosta przeglądarka nieruchomych obrazów OpenEXR
 Name:		openexr_viewers
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	e7b77c320a00cd89ef50605ba2a374cd
+# Source0-md5:	5d4c74ebcaf942267b0353e4c53f8b9e
+Patch0:		%{name}-gcc4.patch
 URL:		http://www.openexr.com/
-BuildRequires:	OpenEXR-devel >= 1.6.1
+BuildRequires:	OpenEXR-devel >= 1.7.0
 BuildRequires:	OpenGL-devel
 %{?with_cg:BuildRequires:	OpenGL-glut-devel}
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake >= 1.6.3
 %{?with_cg:BuildRequires:	cg-devel}
 BuildRequires:	fltk-gl-devel >= 1.1
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	openexr_ctl-devel >= 1.0.1
 BuildRequires:	pkgconfig
+Requires:	OpenEXR >= 1.7.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,8 +48,13 @@ obsługą CTL i stosowaniem przekształceń renderingu i wyświetlania.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__automake}
 %configure
 
 %{__make}
@@ -59,7 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # useless currently
-rm $RPM_BUILD_ROOT%{_includedir}/OpenEXR/OpenEXR_ViewersConfig.h
+%{__rm} $RPM_BUILD_ROOT%{_includedir}/OpenEXR/OpenEXR_ViewersConfig.h
+# already packaged as doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/OpenEXR_Viewers-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT

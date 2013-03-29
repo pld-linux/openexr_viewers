@@ -1,0 +1,11 @@
+--- openexr_viewers-2.0.0/configure.ac.orig	2013-02-04 19:22:35.000000000 +0100
++++ openexr_viewers-2.0.0/configure.ac	2013-03-29 06:25:58.558626667 +0100
+@@ -3,7 +3,7 @@
+ AC_SUBST(OPENEXR_VIEWERS_VERSION, 2.0.0)
+ AC_CANONICAL_HOST
+ AC_CONFIG_SRCDIR(playexr/main.cpp)
+-AM_CONFIG_HEADER(config/OpenEXR_ViewersConfig.h)
++AC_CONFIG_HEADERS(config/OpenEXR_ViewersConfig.h)
+ AM_INIT_AUTOMAKE(1.6.3)  dnl Require automake 1.6.3 or better
+ AM_MAINTAINER_MODE
+ 

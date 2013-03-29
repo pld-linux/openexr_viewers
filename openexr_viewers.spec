@@ -5,15 +5,15 @@
 Summary:	Simple still OpenEXR image viewer
 Summary(pl.UTF-8):	Prosta przeglądarka nieruchomych obrazów OpenEXR
 Name:		openexr_viewers
-Version:	1.0.2
+Version:	2.0.0
 Release:	1
 License:	BSD
 Group:		Libraries
 Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	5d4c74ebcaf942267b0353e4c53f8b9e
-Patch0:		%{name}-gcc4.patch
+# Source0-md5:	9d78a8d17e1cd6326d7c47fec23c1d4e
+Patch0:		%{name}-am.patch
 URL:		http://www.openexr.com/
-BuildRequires:	OpenEXR-devel >= 1.7.0
+BuildRequires:	OpenEXR-devel >= 2.0.0
 BuildRequires:	OpenGL-devel
 %{?with_cg:BuildRequires:	OpenGL-glut-devel}
 BuildRequires:	autoconf >= 2.50
@@ -24,12 +24,12 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	openexr_ctl-devel >= 1.0.1
 BuildRequires:	pkgconfig
-Requires:	OpenEXR >= 1.7.0
+Requires:	OpenEXR >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-exrdisplay is a simple still image viewer that optionally applies color
-transforms to OpenEXR images, using CTL.
+exrdisplay is a simple still image viewer that optionally applies
+color transforms to OpenEXR images, using CTL.
 
 %if %{with cg}
 playexr is a program that plays back OpenEXR image sequences,

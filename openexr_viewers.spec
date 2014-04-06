@@ -5,15 +5,15 @@
 Summary:	Simple still OpenEXR image viewer
 Summary(pl.UTF-8):	Prosta przeglądarka nieruchomych obrazów OpenEXR
 Name:		openexr_viewers
-Version:	2.0.1
+Version:	2.1.0
 Release:	1
 License:	BSD
 Group:		Libraries
-Source0:	http://download.savannah.nongnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	983627bc8c6fabfb026895a05d7c613b
+Source0:	http://download.savannah.gnu.org/releases/openexr/%{name}-%{version}.tar.gz
+# Source0-md5:	da541c054fe8cf3d6e98c3124fd5ad99
 Patch0:		%{name}-am.patch
 URL:		http://www.openexr.com/
-BuildRequires:	OpenEXR-devel >= 2.0.0
+BuildRequires:	OpenEXR-devel >= 2.1.0
 BuildRequires:	OpenGL-devel
 %{?with_cg:BuildRequires:	OpenGL-glut-devel}
 BuildRequires:	autoconf >= 2.50
@@ -22,9 +22,9 @@ BuildRequires:	automake >= 1.6.3
 BuildRequires:	fltk-gl-devel >= 1.1
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.5
-BuildRequires:	openexr_ctl-devel >= 1.0.1
+BuildRequires:	openexr_ctl-devel >= 1.5
 BuildRequires:	pkgconfig
-Requires:	OpenEXR >= 2.0.0
+Requires:	OpenEXR >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

@@ -6,7 +6,7 @@ Summary:	Simple still OpenEXR image viewer
 Summary(pl.UTF-8):	Prosta przeglądarka nieruchomych obrazów OpenEXR
 Name:		openexr_viewers
 Version:	2.2.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 Source0:	http://download.savannah.gnu.org/releases/openexr/%{name}-%{version}.tar.gz

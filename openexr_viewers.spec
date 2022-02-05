@@ -5,27 +5,28 @@
 Summary:	Simple still OpenEXR image viewer
 Summary(pl.UTF-8):	Prosta przeglądarka nieruchomych obrazów OpenEXR
 Name:		openexr_viewers
-Version:	2.2.1
+Version:	2.3.0
 Release:	1
 License:	BSD
-Group:		Libraries
-Source0:	http://download.savannah.gnu.org/releases/openexr/%{name}-%{version}.tar.gz
-# Source0-md5:	f68d5cb2c09420f26c967a6411c463a9
+Group:		X11/Applications/Graphics
+#Source0Download: https://github.com/AcademySoftwareFoundation/openexr/releases
+Source0:	https://github.com/AcademySoftwareFoundation/openexr/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	15561e0e79da1218b7cc124bdd13ef3e
 Patch0:		%{name}-am.patch
-URL:		http://www.openexr.com/
-BuildRequires:	OpenEXR-devel >= 2.2.1
+URL:		https://www.openexr.com/
+BuildRequires:	OpenEXR-devel >= 2.3.0
 BuildRequires:	OpenGL-devel
-%{?with_cg:BuildRequires:	OpenGL-glut-devel}
+%{?with_cg:BuildRequires:	 OpenGL-glut-devel}
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.6.3
 %{?with_cg:BuildRequires:	cg-devel}
 BuildRequires:	fltk-gl-devel >= 1.1
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:5
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	openexr_ctl-devel >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
-Requires:	OpenEXR >= 2.2.1
+Requires:	OpenEXR >= 2.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING ChangeLog NEWS README doc/OpenEXRViewers.pdf
+%doc ChangeLog LICENSE README.md doc/OpenEXRViewers.pdf
 %attr(755,root,root) %{_bindir}/exrdisplay
 %if %{with cg}
 %attr(755,root,root) %{_bindir}/playexr

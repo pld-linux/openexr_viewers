@@ -50,7 +50,7 @@ obsługą CTL i stosowaniem przekształceń renderingu i wyświetlania.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
